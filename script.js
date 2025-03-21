@@ -128,19 +128,15 @@ const score = function(){
     switch(result){
         case "YOU WIN!":
             playerScore++;
-            playerScoreDisplay.innerHTML = `${playerScore}`;
+            playerScoreDisplay.innerHTML = `SCORE: <span style="color: #f92a82; font-weight: bold;">${playerScore}</span>`;
             break;
         case "YOU LOSE!":
             computerScore++;
-            computerScoreDisplay.innerHTML = `${computerScore}`;
-            break;
-        case "TIE":
-            computerScore++;
-            playerScore++;
-            computerScoreDisplay.innerHTML = `${computerScore}`;
-            playerScoreDisplay.innerHTML = `${playerScore}`;
+            computerScoreDisplay.innerHTML = `SCORE: <span style="color: #f92a82; font-weight: bold;">${computerScore}</span>`;
             break;
     };
+
+    
 
     if(playerScore === 5 || computerScore === 5){
         disableButtons();
@@ -152,6 +148,22 @@ const disableButtons = function(){
     paper.disabled = true;
     scissors.disabled = true;
 };
+
+const restartOption = function(){
+    roundWinnerDisplay.textContent = "Choose your weapon";
+    optionWinnerDisplay.textContent = "First to 5 wins!";
+    playerDisplay.innerHTML = "&#10067";
+    computerDisplay.innerHTML = "&#10067";
+    playerScoreDisplay.textContent = "SCORE:";
+    computerScoreDisplay.textContent = "SCORE:";
+    rock.disabled = false;
+    paper.disabled = false;
+    scissors.disabled = false;
+    playerScore = 0;
+    computerScore = 0;
+};
+
+restart.addEventListener("click",restartOption);
 
 
 
