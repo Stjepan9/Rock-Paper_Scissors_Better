@@ -14,8 +14,8 @@ const optionWinnerDisplay = document.querySelector("#optionWinnerDisplay");
 const playerDisplay = document.querySelector("#playerOption");
 const computerDisplay = document.querySelector("#computerOption");
 
-const playerScore = document.querySelector("#playerScore");
-const computerScore = document.querySelector("#computerScore");
+const playerScoreDisplay = document.querySelector("#playerScore");
+const computerScoreDisplay = document.querySelector("#computerScore");
 
 
 const restart = document.querySelector("#restart");
@@ -46,6 +46,7 @@ rock.addEventListener("click",function(){
     playerDisplay.innerHTML = "&#128074";
 
     getWinner("rock",computer);
+    score();
 });
 
 paper.addEventListener("click",function(){
@@ -64,6 +65,7 @@ paper.addEventListener("click",function(){
 
     playerDisplay.innerHTML = "&#129306";
     getWinner("paper",computer);
+    score();
 });
 
 scissors.addEventListener("click",function(){
@@ -81,9 +83,12 @@ scissors.addEventListener("click",function(){
     }
     playerDisplay.innerHTML = "&#9996";
     getWinner("scissors",computer);
+    score();
 });
 
 let result;
+let playerScore = 0;
+let computerScore = 0;
 
 const getWinner = function(playerChoice,computer){
     if(playerChoice === computer){
@@ -118,3 +123,35 @@ const getWinner = function(playerChoice,computer){
             break;
     };
 }
+
+const score = function(){
+    switch(result){
+        case "YOU WIN!":
+            playerScore++;
+            playerScoreDisplay.innerHTML = `${playerScore}`;
+            break;
+        case "YOU LOSE!":
+            computerScore++;
+            computerScoreDisplay.innerHTML = `${computerScore}`;
+            break;
+        case "TIE":
+            computerScore++;
+            playerScore++;
+            computerScoreDisplay.innerHTML = `${computerScore}`;
+            playerScoreDisplay.innerHTML = `${playerScore}`;
+            break;
+    };
+
+    if(playerScore === 5 || computerScore === 5){
+        disableButtons();
+    }
+};
+
+const disableButtons = function(){
+    rock.disabled = true;
+    paper.disabled = true;
+    scissors.disabled = true;
+};
+
+
+
