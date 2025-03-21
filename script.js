@@ -28,9 +28,10 @@ const randomComputerChoice = function(){
     return choice;
 };
 
-
+//--- Added EventListeners for computerDisplay of choice----
 rock.addEventListener("click",function(){
-    switch(randomComputerChoice()){
+    let computer = randomComputerChoice();
+    switch(computer){
         case "rock":
             computerDisplay.innerHTML = "&#128074";
             break;
@@ -41,10 +42,15 @@ rock.addEventListener("click",function(){
             computerDisplay.innerHTML = "&#9996";
             break;
     }
+
+    playerDisplay.innerHTML = "&#128074";
+
+    getWinner("rock",computer);
 });
 
 paper.addEventListener("click",function(){
-    switch(randomComputerChoice()){
+    let computer = randomComputerChoice();
+    switch(computer){
         case "rock":
             computerDisplay.innerHTML = "&#128074";
             break;
@@ -55,10 +61,14 @@ paper.addEventListener("click",function(){
             computerDisplay.innerHTML = "&#9996";
             break;
     }
+
+    playerDisplay.innerHTML = "&#129306";
+    getWinner("paper",computer);
 });
 
 scissors.addEventListener("click",function(){
-    switch(randomComputerChoice()){
+    let computer = randomComputerChoice();
+    switch(computer){
         case "rock":
             computerDisplay.innerHTML = "&#128074";
             break;
@@ -69,9 +79,42 @@ scissors.addEventListener("click",function(){
             computerDisplay.innerHTML = "&#9996";
             break;
     }
+    playerDisplay.innerHTML = "&#9996";
+    getWinner("scissors",computer);
 });
 
+let result;
 
-const playRound = function(){
-    
+const getWinner = function(playerChoice,computer){
+    if(playerChoice === computer){
+        result = "TIE";
+    }
+    else{
+        switch(playerChoice){
+            case "rock":
+                result = (computer ==="scissors") ? "YOU WIN!" : "YOU LOSE!";
+                break;
+            case "scissors":
+                result = (computer === "paper") ? "YOU WIN!" : "YOU LOSE!";
+                break;
+            case "paper":
+                result = (computer === "rock") ? "YOU WIN!" : "YOU LOSE!";
+                break;
+        }
+    }
+
+    switch(result){
+        case "TIE":
+            roundWinnerDisplay.textContent = "IT IS A TIE";
+            optionWinnerDisplay.textContent = `BOTH CHOOSE ${playerChoice.toUpperCase()}`;
+            break;
+        case "YOU WIN!":
+            roundWinnerDisplay.textContent = "YOU WIN!";
+            optionWinnerDisplay.textContent = `${playerChoice.toUpperCase()} BEATS ${computer.toUpperCase()}`;
+            break;
+        case "YOU LOSE!":
+            roundWinnerDisplay.textContent = "YOU LOSE!";
+            optionWinnerDisplay.textContent = `${computer.toUpperCase()} BEATS ${playerChoice.toUpperCase()}`;
+            break;
+    };
 }
