@@ -4,17 +4,16 @@ body{
     margin:0;
     background-color: #f5dbcb;
 }
-
 #header{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     background-color: #d4b39eb7;
-    padding: 10px;
+    padding: 3px;
 }
 #header h1 {
-    font-size: 3rem;
+    font-size: 2.5rem;
     color: #f92a82;
     text-shadow:
         1px 1px 0 #000,
@@ -30,19 +29,18 @@ body{
         text-transform: uppercase;
         letter-spacing: 2px;
 }
-
 #options{
     display: flex;
     gap: 20px;
     justify-content: center;
-    padding-top:20px;
+    padding-top:15px;
 }
 #options button{
-    font-size: 5rem;
-    width: 150px;
-    height:150px;
+    font-size: 4rem;
+    width: 100px;
+    height:100px;
     border: none;
-    border-radius: 50%;
+    border-radius: 40%;
     background-color: hsl(334, 73%, 55%);
     font-weight: bold;
     cursor: pointer;
@@ -52,7 +50,6 @@ body{
     transition: transform 0.3 ease-out;
     box-shadow: 4px 4px 0 #000;
 }
-
 #options button:hover{
     background-color:hsl(334, 86%, 46%); 
     transition: 0.3 ease-out;
@@ -62,15 +59,36 @@ body{
 #options button:active{
     background-color: hsl(334, 82%, 35%);;
 }
+
+#roundResultDisplay{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top:20px;
+    font-size:1.8rem;
+}
+
+
 #display{
     display: flex;
     justify-content:center;
-    height:20vh;
+    height:10vh;
     gap: 100px;
     font-size: 2rem;
     padding: 50px;
 }
 
+#playerDisplay, #computerDisplay{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 10vh;
+}
+
+#playerOption, #computerOption{
+    font-size:3.5rem;
+}
 #score{
     display: flex;
     flex-direction: column;
@@ -78,13 +96,11 @@ body{
     font-size: 2rem;
     padding:20px;
 }
-
 #footer{
     display: flex;
     justify-content: center;
     padding: 20px;
 }
-
 #restart{
     font-size: 1.2rem;
     height: 130px;
@@ -100,8 +116,6 @@ body{
     box-shadow: 4px 4px 0 #000;
     background-color: hsl(334, 73%, 55%);
 }
-
-
 #restart:hover{
     background-color:hsl(334, 86%, 46%); 
     transition: 0.3 ease-out;
