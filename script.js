@@ -17,7 +17,7 @@ const computerDisplay = document.querySelector("#computerOption");
 const playerScoreDisplay = document.querySelector("#playerScore");
 const computerScoreDisplay = document.querySelector("#computerScore");
 
-
+const finalResult = document.querySelector("#finalResult");
 const restart = document.querySelector("#restart");
 
 let choices = ["rock", "paper", "scissors"];
@@ -138,9 +138,18 @@ const score = function(){
 
     
 
-    if(playerScore === 5 || computerScore === 5){
+    if(playerScore === 5 && computerScore < 5){
+        finalResult.textContent = `CONGRATULATIONS! YOU WON THE GAME!`;
+        disableButtons();
+    } else if (computerScore === 5 && playerScore < 5){
+        finalResult.textContent = `SORRY! YOU LOST THIS ONE!`;
         disableButtons();
     }
+
+
+
+
+
 };
 
 const disableButtons = function(){
@@ -151,7 +160,7 @@ const disableButtons = function(){
 
 const restartOption = function(){
     roundWinnerDisplay.textContent = "Choose your weapon";
-    optionWinnerDisplay.textContent = "First to 5 wins!";
+    optionWinnerDisplay.textContent = "First to 5 wins! (TIE = 0)";
     playerDisplay.innerHTML = "&#10067";
     computerDisplay.innerHTML = "&#10067";
     playerScoreDisplay.textContent = "SCORE:";
@@ -161,6 +170,7 @@ const restartOption = function(){
     scissors.disabled = false;
     playerScore = 0;
     computerScore = 0;
+    finalResult.textContent = "Will you beat the computer?"
 };
 
 restart.addEventListener("click",restartOption);

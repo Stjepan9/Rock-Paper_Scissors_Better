@@ -7,49 +7,48 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-    <div id=header>
-        <h1><span>Rock Paper Scissors</span></h1>
-    </div>
-
-    <div id="options">
-        <button id="rock">&#128074</button>
-        <button id="paper">&#129306</button>
-        <button id="scissors">&#9996</button>
-    </div>
-
-    <div id="roundResultDisplay">
-        <div id="roundWinnerDisplay">Choose your weapon</div>
-        <div id="optionWinnerDisplay">First to 5 wins!</div>
-    </div>
-
-    <div id="display">
-        <div id="playerDisplay">
-            <div>PLAYER:</div>
-            <div id ="playerOption">&#10067</div>
+    <div id ="content">
+        <div id=header>
+            <h1><span>Rock Paper Scissors</span></h1>
         </div>
-        <div id="computerDisplay">
-            <div>COMPUTER:</div>
-            <div id="computerOption">&#10067</div>
+
+        <div id="options">
+            <button id="rock">&#128074</button>
+            <button id="paper">&#129306</button>
+            <button id="scissors">&#9996</button>
+        </div>
+
+        <div id="roundResultDisplay">
+            <div id="roundWinnerDisplay">Choose your weapon</div>
+            <div id="optionWinnerDisplay">First to 5 wins! (TIE = 0)</div>
+        </div>
+
+        <div id="display">
+            <div id="playerDisplay">
+                <div>PLAYER:</div>
+                <div id ="playerOption">&#10067</div>
+            </div>
+            <div id="computerDisplay">
+                <div>COMPUTER:</div>
+                <div id="computerOption">&#10067</div>
+            </div>
+        </div>
+
+
+        <div id="score">
+            <div id="playerScore">SCORE:</div>
+            <div id="computerScore">SCORE:</div>
+        </div>
+
+        <div id="finalContainer">
+            <div id="finalResult">Will you beat the computer?</div>
         </div>
     </div>
-
-
-    <div id="score">
-        <div id="playerScore">SCORE:</div>
-        <div id="computerScore">SCORE:</div>
-    </div>
-
-    <div id="finalResult">CONGRATULATIONS</div>
 
     
-        <div id="footer">
-            <button id="restart">RESTART GAME</button>
-        </div>
-
-        
-
-
+            <div id="footer">
+                <button id="restart">RESTART GAME</button>
+            </div>
     <script src="script.js"></script>
 </body>
 </html>
